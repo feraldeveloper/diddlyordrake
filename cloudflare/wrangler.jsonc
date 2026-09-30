@@ -1,0 +1,16 @@
+{
+  "name": "diddly-or-drake",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-29",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://feraldeveloper.github.io,https://diddlyordrake.com,https://www.diddlyordrake.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "diddly-or-drake",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("assets/fonts/PixelifySans.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Pixelify Sans", "Courier New", monospace;
+  font-weight: 400;
+  color: #f5f5f5;
+  background: #010101;
+  --diddly: #a39aff;
+  --drake: #ff0808;
+}
+
+* { box-sizing: border-box; }
+body {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(35deg, #010101, #41213a);
+}
+.ambient-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.splotch {
+  position: absolute;
+  background: radial-gradient(ellipse, #81214a 0%, #81214a00 70%);
+  animation: splotch-drift 58s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.splotch:nth-child(1) { width: 65%; height: 44%; left: -24%; top: -7%; animation-duration: 63s; animation-delay: -17s; }
+.splotch:nth-child(2) { width: 47%; height: 34%; left: 67%; top: 15%; animation-duration: 51s; animation-delay: -31s; animation-direction: alternate-reverse; }
+.splotch:nth-child(3) { width: 54%; height: 30%; left: 8%; top: 39%; animation-duration: 72s; animation-delay: -43s; }
+.splotch:nth-child(4) { width: 75%; height: 40%; left: 60%; top: 57%; animation-duration: 67s; animation-delay: -9s; animation-direction: alternate-reverse; }
+.splotch:nth-child(5) { width: 52%; height: 32%; left: -16%; top: 80%; animation-duration: 56s; animation-delay: -26s; }
+@keyframes splotch-drift {
+  from { transform: translate3d(-4vw, -30px, 0) scale(.95); }
+  to { transform: translate3d(5vw, 50px, 0) scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .splotch { animation: none; will-change: auto; }
+}
+.page { width: min(100%, 1000px); margin: 0 auto; padding: 90px 54px 0; }
+p, h1, h2 { margin: 0; font-weight: 400; }
+.introduction h1,
+.faq,
+.comment {
+  -webkit-user-select: none;
+  user-select: none;
+}
+.diddly { color: var(--diddly); }
+.drake { color: var(--drake); }
+
+h1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: clamp(29px, 7.5vw, 76px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.title-small { font-size: .76em; font-weight: 500; letter-spacing: -1px; }
+.intro-copy { max-width: 610px; margin-top: 16px; font-size: 21px; line-height: 1; }
+.intro-copy p + p { margin-top: 34px; }
+.intro-copy p:last-child { margin-top: 50px; }
+
+.statistics { margin-top: 90px; text-align: center; }
+.total { font-size: 120px; line-height: .9; overflow-wrap: anywhere; }
+.statistics h2 { margin-top: 4px; font-size: 34px; line-height: 1.1; }
+.vote-breakdown { display: flex; justify-content: center; gap: 28px; margin-top: 26px; font-size: 21px; line-height: 1; }
+.vote-breakdown p { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vote-count { font-size: 30px; overflow-wrap: anywhere; }
+
+.voting { margin-top: 102px; text-align: center; }
+.voting h2, .choice-prompt { font-size: 21px; line-height: 1.2; }
+.comment {
+  width: 262px;
+  max-width: 100%;
+  margin: 38px auto 0;
+  padding: 17px 2px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f1f1f1;
+  background: #0f0f0f;
+  text-align: left;
+}
+.avatar { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: #8520a2; font-size: 13px; line-height: 1; }
+.byline { display: flex; align-items: baseline; gap: 4px; padding-top: 2px; white-space: nowrap; font-size: 14px; line-height: 18px; }
+.username { font-weight: 700; }
+.timestamp { color: #aaa; }
+.choices { display: flex; align-items: baseline; gap: 4px; margin-top: 10px; white-space: nowrap; font-size: 18px; font-weight: 500; line-height: 23px; }
+.choice { appearance: none; margin: 0; padding: 0; border: 0; border-radius: 2px; background: transparent; color: inherit; font: inherit; line-height: inherit; cursor: pointer; text-underline-offset: 4px; touch-action: manipulation; }
+.choice:hover, .choice[aria-pressed="true"] { text-decoration: underline; }
+.choice:focus-visible, summary:focus-visible { outline: 2px solid var(--diddly); outline-offset: 5px; }
+.choice:disabled { cursor: default; opacity: .65; }
+.comment-actions { display: flex; align-items: center; gap: 24px; height: 24px; margin-top: 14px; }
+.comment-actions svg { width: 21px; height: 21px; flex-shrink: 0; }
+.dislike { transform: rotate(180deg); }
+.reply { margin-left: 1px; font-size: 14px; font-weight: 700; }
+.choice-prompt { margin-top: 26px; }
+.vote-message { max-width: 420px; margin: 16px auto 0; min-height: 22px; color: #aaa; font-size: 18px; line-height: 1.2; }
+
+.faq { margin-top: 186px; }
+.faq h2 { text-align: center; font-size: 80px; line-height: 1; }
+.faq-items { margin: 78px 40px 0; font-size: 21px; line-height: 1.1; }
+details + details { margin-top: 24px; }
+summary { position: relative; padding-right: 28px; list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+summary::after { position: absolute; right: 0; top: 0; content: "+"; color: #888; }
+details[open] summary::after { content: "−"; }
+details p { padding-top: 17px; }
+#alternating-answer { display: inline-block; min-width: 7em; }
+footer { width: min(100%, 1000px); margin: 330px auto 0; padding: 0 38px 90px; color: #b39baa; font-size: 14px; line-height: 1.2; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 600px) {
+  .page { padding: 54px 22px 0; }
+  h1 { letter-spacing: -1px; font-size: clamp(28px, 8.8vw, 52px); }
+  .title-small { letter-spacing: 0; }
+  .intro-copy { margin-top: 25px; font-size: 18px; line-height: 1.1; }
+  .intro-copy p + p { margin-top: 28px; }
+  .intro-copy p:last-child { margin-top: 36px; }
+  .statistics { margin-top: 72px; }
+  .total { font-size: 100px; }
+  .statistics h2 { font-size: 30px; }
+  .vote-breakdown { font-size: 18px; gap: 24px; }
+  .vote-count { font-size: 28px; }
+  .voting { margin-top: 80px; }
+  .voting h2, .choice-prompt { font-size: 19px; }
+  .faq { margin-top: 130px; }
+  .faq h2 { font-size: 64px; }
+  .faq-items { margin: 54px 0 0; font-size: 18px; line-height: 1.15; }
+  footer { margin-top: 180px; padding: 0 22px 46px; font-size: 12px; }
+}
+
+@media (max-width: 330px) {
+  .page { padding-right: 14px; padding-left: 14px; }
+  .comment { gap: 12px; }
+  .byline { flex-wrap: wrap; gap: 0 4px; white-space: normal; }
+}

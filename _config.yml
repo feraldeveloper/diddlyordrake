@@ -1,0 +1,12 @@
+# GitHub Pages: publish the static frontend, not local tools or reference files.
+exclude:
+  - server.py
+  - start.cmd
+  - test_server.py
+  - README.md
+  - data
+  - cloudflare
+  - .verification
+  - __pycache__
+  - diddlyordrake.png
+  - mockup.png

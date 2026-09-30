@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#010101">
+    <meta name="description" content="One question. One vote. Diddly or Drake?">
+    <title>Diddly or Drake</title>
+    <link rel="icon" href="data:,">
+    <link rel="preload" href="assets/fonts/PixelifySans.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient-background" aria-hidden="true">
+      <span class="splotch"></span><span class="splotch"></span><span class="splotch"></span><span class="splotch"></span><span class="splotch"></span>
+    </div>
+    <main class="page">
+      <header class="introduction">
+        <h1 aria-label="diddly or drake dot com"><span class="diddly">diddly</span><span class="title-small">or</span><span class="drake">drake</span><span class="title-small">.com</span></h1>
+        <div class="intro-copy">
+          <p>DiddlyOrDrake is a groundbreaking app that allows for a standard unified voting API for decisions between diddly or drake. Previously, decisions like these would be conducted by social vote. In the modern day, this does not scale in the age of the internet.</p>
+          <p>Our technology brings a much needed innovation to the table; one singular vote conducted online with actual genuine results, untapered, unfiltered.</p>
+          <p>Don't believe us? Ask our voters.</p>
+        </div>
+      </header>
+
+      <section class="statistics" aria-label="Poll results">
+        <p class="total" id="total-votes" aria-label="Total votes unavailable">—</p>
+        <h2>Satisfied Voters</h2>
+        <div class="vote-breakdown">
+          <p><span class="diddly vote-count" id="diddly-votes">—</span><span>diddly voters</span></p>
+          <p><span class="drake vote-count" id="drake-votes">—</span><span>drake voters</span></p>
+        </div>
+      </section>
+
+      <section class="voting" aria-label="Cast your vote">
+        <h2>Now, all that's left is your choice.</h2>
+        <article class="comment" aria-label="Choose Diddly or Drake">
+          <div class="avatar" aria-hidden="true">S</div>
+          <div class="comment-content">
+            <div class="byline"><span class="username">@sadfsdgsfg</span><span class="timestamp">1 year ago</span></div>
+            <div class="choices" role="group" aria-label="Cast your vote">
+              <button class="choice" type="button" data-choice="diddly" aria-label="Vote for Diddly" aria-pressed="false">Diddly<span aria-hidden="true">💀</span></button>
+              <span>Or</span>
+              <button class="choice" type="button" data-choice="drake" aria-label="Vote for Drake" aria-pressed="false">drake<span aria-hidden="true">🤡</span></button>
+            </div>
+            <div class="comment-actions" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 10 10 3c.3-.8 1.6-.5 1.8.3l.8 3.9L12 10h6.7c1.5 0 2.4 1.2 2 2.7l-1.7 6c-.2.8-.9 1.3-1.7 1.3H9l-2-1H3v-9h4Z"/><path d="M7 10v9"/></svg>
+              <svg class="dislike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 10 10 3c.3-.8 1.6-.5 1.8.3l.8 3.9L12 10h6.7c1.5 0 2.4 1.2 2 2.7l-1.7 6c-.2.8-.9 1.3-1.7 1.3H9l-2-1H3v-9h4Z"/><path d="M7 10v9"/></svg>
+              <span class="reply">Reply</span>
+            </div>
+          </div>
+        </article>
+        <p class="choice-prompt">What'll it be?</p>
+        <p id="vote-message" class="vote-message" role="status" aria-live="polite" aria-atomic="true"></p>
+        <noscript><p class="vote-message">Enable JavaScript to cast your vote.</p></noscript>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">FAQ</h2>
+        <div class="faq-items">
+          <details>
+            <summary>What does the choice between diddly or drake mean?<br>What am I being asked?</summary>
+            <p>A: You cant be serious, can you?</p>
+          </details>
+          <details>
+            <summary>How do I know that there's no voter fraud here?</summary>
+            <p>A: Their Isnt</p>
+          </details>
+          <details id="coin-flip-faq">
+            <summary>Diddly💀 Or Drake🤡</summary>
+            <p>A: <span id="alternating-answer" aria-hidden="true">diddly💀</span><span class="sr-only">Diddly or Drake. The answer keeps changing.</span></p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer>© 2026 DiddlyOrDrake Corp. All Diddlys are in actuality possibly Drakes.</footer>
+  </body>
+</html>

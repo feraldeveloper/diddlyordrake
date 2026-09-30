@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+data/
+.verification/
+node_modules/
+.wrangler/
+.tools/
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+mockup.png
+diddlyordrake.png
