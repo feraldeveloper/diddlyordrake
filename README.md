@@ -6,7 +6,14 @@ The static HTML/CSS/JavaScript frontend follows `mockup.png`: pixel typography, 
 
 GitHub Pages serves the frontend. Cloudflare Workers runs the voting API; D1 persists the votes. Cloudflare's free plan has daily usage limits: see [Workers pricing](https://developers.cloudflare.com/workers/platform/pricing/) and [D1 pricing](https://developers.cloudflare.com/d1/platform/pricing/).
 
-The backend source is included but has **not been deployed**. Until `config.js` contains a deployed API URL, public pages show "Voting opens soon." and use dashes for unavailable totals. The example counts in the mockup are not fake live votes.
+The deployment uses these endpoints:
+
+- Website: <https://diddlyordrake.com/>
+- API: <https://diddly-or-drake.diddlyordrake.workers.dev/api/votes>
+
+`config.js` points to the API. The website shows real totals, not the example numbers from the mockup. API requests must carry an allowed Origin header; visiting the API URL directly can return "Origin not allowed."
+
+The setup steps below are for recreating this deployment in another account. To update this deployment, authenticate with Wrangler, then run `npx wrangler@latest deploy --config cloudflare/wrangler.jsonc`. Frontend updates publish through GitHub Pages when pushed to `main`.
 
 ### 1. Create the Cloudflare database
 
@@ -66,7 +73,7 @@ Run `start.cmd`, then open <http://127.0.0.1:8000>. Or:
 python server.py
 ```
 
-Python 3.10+ is sufficient; no packages are needed. Leave `config.js` empty to use the local SQLite API. Local votes are saved in `data/votes.sqlite3`; they are separate from the hosted D1 poll.
+Python 3.10+ is sufficient; no packages are needed. Localhost automatically uses the local SQLite API, even with the production URL in `config.js`. Local votes are saved in `data/votes.sqlite3`; they are separate from the hosted D1 poll.
 
 Opening `index.html` directly previews the layout without a poll connection.
 

@@ -9,8 +9,9 @@ const names = { diddly: "Diddly", drake: "Drake" };
 const numberFormat = new Intl.NumberFormat("en-US");
 const configuredUrl = (window.POLL_CONFIG?.apiUrl || "").trim();
 const localPreview = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
-const apiUrl = configuredUrl || (localPreview ? new URL("api/votes", document.baseURI).href : "");
-const remoteBackend = Boolean(configuredUrl);
+const apiUrl = localPreview ? new URL("api/votes", document.baseURI).href :
+  (location.protocol === "file:" ? "" : configuredUrl);
+const remoteBackend = Boolean(apiUrl) && !localPreview;
 let voterToken = null;
 let busy = false;
 let requestVersion = 0;

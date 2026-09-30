@@ -1,6 +1,4 @@
-// After deploying the Cloudflare Worker, put its full API URL here.
-// Example: https://diddly-or-drake.YOUR-SUBDOMAIN.workers.dev/api/votes
-// Leave empty for local development. Public pages show "Voting opens soon."
+// Public Cloudflare Worker endpoint; no account secrets belong here.
 window.POLL_CONFIG = {
-  apiUrl: ""
+  apiUrl: "https://diddly-or-drake.diddlyordrake.workers.dev/api/votes"
 };
